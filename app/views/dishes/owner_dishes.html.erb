@@ -1,0 +1,29 @@
+<h1>Owner dishes</h1>
+<h3><strong>Owner name: </strong> <%= current_user.name %></h3>
+<% if @owner_dishes.present?  %>
+  <div class = "container">
+    <% @owner_dishes.each do |dish| %>
+    <div class="small_container">
+      <p><strong>Restaurant: </strong> <%= dish.restaurant.name%></p>
+      <p><strong>Dish: </strong> <%= dish.name %></p>
+      <p><strong>price: </strong> <%= dish.price%></p>
+      <p><strong>Category: </strong> <%= dish.category.name %></p><br> <br>
+    <% end %>
+    </div>
+  </div>
+<% else %>
+<p>NO dishes in the restaurant</p>
+<% end %>
+
+
+<style>
+  .container{
+    padding: 10px;
+    margin: 10px;
+    width: calc(33.33% - 20px);
+    text-align: center;
+    background: white;
+    border: 1px solid #ddd;
+  }
+
+</style>

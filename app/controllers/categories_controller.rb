@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    # render json: categories
+    # render json: @categories
   end
 
   def new
@@ -32,7 +32,6 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    byebug
     if @category.update(category_params)
       # render json: { data: @category, message: 'Category updated' }
       redirect_to categories_path, notice: "update category"

@@ -1,0 +1,18 @@
+current directory: /home/hp/Desktop/update view/Uber_Eats/.gems/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+/usr/share/rvm/rubies/ruby-3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/hp/Desktop/update view/Uber_Eats/.gems/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231123-6252-abbpsh sitelibdir\=./.gem.20231123-6252-abbpsh clean
+
+current directory: /home/hp/Desktop/update view/Uber_Eats/.gems/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231123-6252-abbpsh sitelibdir\=./.gem.20231123-6252-abbpsh
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/hp/Desktop/update view/Uber_Eats/.gems/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231123-6252-abbpsh sitelibdir\=./.gem.20231123-6252-abbpsh install
+/usr/bin/install -m 0755 cparse.so ./.gem.20231123-6252-abbpsh/racc
+
+current directory: /home/hp/Desktop/update view/Uber_Eats/.gems/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231123-6252-abbpsh sitelibdir\=./.gem.20231123-6252-abbpsh clean

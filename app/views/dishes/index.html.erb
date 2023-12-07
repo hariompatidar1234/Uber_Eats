@@ -138,7 +138,6 @@
 
       }
     }
-
     .price-details{
       width: 50px;
       height: 50px;
@@ -147,13 +146,6 @@
       border: 1px solid #ddd;
       border-radius: 1px;
       /*margin: 10px;*/
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-      background-color: #343a40;
-      color: white;
-      border-radius: 5px;
-      font-size: 16px;
-    }
   </style>
 <body>
 
@@ -173,11 +165,9 @@
       <% end %>
     </div>
   </div>
-  <!-- Hamburger menu icon -->
   <div class="menu-button" onclick="toggleMenu()">&#9776;</div>
 </div>
 
-<!-- Back Button at the Top -->
 <div class="back-button">
   <%= link_to "Back", restaurants_path, class: 'btn btn-back' %>
 </div>
@@ -200,6 +190,7 @@
         <%# <p>Dish_id: <%= d.id %></p>
         <div class="price-details">
           <p><%= d.price %></p>
+
         </div>
         <p>Category: <%= Category.find_by_id(d.category_id).name %></p>
         <%# <p>Other Details: <!-- Add other details here --></p> %>

@@ -1,0 +1,13 @@
+prefix=/home/hp/Desktop/update view/Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.5/ports/x86_64-linux/libxml2/2.11.6
+exec_prefix=${prefix}
+libdir=/home/hp/Desktop/update view/Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.5/ports/x86_64-linux/libxml2/2.11.6/lib
+includedir=${prefix}/include
+modules=1
+
+Name: libXML
+Version: 2.11.6
+Description: libXML library version2.
+Requires:
+Libs: -L${libdir} -lxml2
+Libs.private: -lz     -lm  
+Cflags: -I${includedir}/libxml2 

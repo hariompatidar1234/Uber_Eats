@@ -1,77 +1,82 @@
-<style>
-  body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #495057;
-  }
-
-  h1 {
-    font-size: 36px;
-    color: #007bff;
-    margin-bottom: 20px;
-  }
-
-  p {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  .btn-secondary,
-  .btn-primary,
-  .button-shape {
-    padding: 12px 24px; /* Increased padding for a more clickable area */
-    margin: 5px; /* Added margin for spacing */
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-
-  .btn-secondary {
-    background-color: #6c757d;
-    color: #fff;
-  }
-
-  .btn-secondary:hover {
-    background-color: #5a6268;
-  }
-
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    margin-right: 10px;
-  }
-
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-
-  .button-shape {
-    background-color: #28a745;
-    color: #fff;
-  }
-
-  .button-shape:hover {
-    background-color: #218838;
-  }
-</style>
-
 <body>
   <h1>User Profile</h1>
   <p><strong>ID:</strong> <%= current_user.id %></p>
   <p><strong>Name:</strong> <%= current_user.name %></p>
   <p><strong>Email:</strong> <%= current_user.email %></p>
+  <p><strong>User Contact:</strong> <%= current_user.contact %></p>
   <p><strong>User Type:</strong> <%= current_user.type %></p>
+
 
   <%= link_to "Back", restaurants_path, class: 'btn btn-secondary' %>
 
   <% if current_user.type == "Owner" %>
     <%= link_to "Show My Restaurants", my_restaurants_list_restaurants_path, class: 'btn btn-primary' %>
+    <%= link_to "Show on restaurants dishes", owner_dishes_dishes_path, class: 'btn btn-primary' %>
+
+
   <% end %>
 
   <%= button_to "EDIT PROFILE", edit_user_registration_path, method: :get, class: "button-shape" %>
 </body>
+
+ <style>
+   body {
+     font-family: 'Arial', sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #f8f9fa;
+     color: #495057;
+   }
+
+   h1 {
+     font-size: 36px;
+     color: #007bff;
+     margin-bottom: 20px;
+   }
+
+   p {
+     font-size: 18px;
+     margin-bottom: 10px;
+   }
+
+   .btn-secondary,
+   .btn-primary,
+   .button-shape {
+     padding: 12px 24px; /* Increased padding for a more clickable area */
+     margin: 5px; /* Added margin for spacing */
+     text-align: center;
+     display: inline-block;
+     text-decoration: none;
+     cursor: pointer;
+     border-radius: 5px;
+     font-size: 16px;
+   }
+
+   .btn-secondary {
+     background-color: #6c757d;
+     color: #fff;
+   }
+
+   .btn-secondary:hover {
+     background-color: #5a6268;
+   }
+
+   .btn-primary {
+     background-color: #007bff;
+     color: #fff;
+     margin-right: 10px;
+   }
+
+   .btn-primary:hover {
+     background-color: #0056b3;
+   }
+
+   .button-shape {
+     background-color: #28a745;
+     color: #fff;
+   }
+
+   .button-shape:hover {
+     background-color: #218838;
+   }
+ </style>

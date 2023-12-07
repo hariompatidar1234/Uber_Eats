@@ -66,11 +66,12 @@ class DishesController < ApplicationController
   end
 
   def owner_dishes
-    owner_dishes = @current_user.restaurants.map(&:dishes).flatten
-    owner_dishes = owner_dishes.select { |dish| dish.name.downcase.include?(params[:name].downcase) } if params[:name].present?
-    owner_dishes = owner_dishes.select { |dish| dish.category_id == params[:category_id].to_i } if params[:category_id].present?
+    @owner_dishes = current_user.restaurants.map(&:dishes).flatten
+    # @owner_dishes = current_user.restaurants.merge(dishes)
+    @owner_dishes = @owner_dishes.select { |dish| dish.name.downcase.include?(params[:name].downcase) } if params[:name].present?
+    @owner_dishes = @owner_dishes.select { |dish| dish.category_id == params[:category_id].to_i } if params[:category_id].present?
 
-    render json: owner_dishes
+    # render json: owner_dishes
   end
 
 
@@ -90,6 +91,6 @@ class DishesController < ApplicationController
     @dishes = dishes.where(category_id: params[:category_id]) if params[:category_id]
     @dishes = dishes.where('name LIKE ?', "%#{params[:name]}%") if params[:name]
     @dishes = dishes.page(params[:page]).per(5) if params[:page]
-    @dishes
+    @dishes = dishes
   end
 end

@@ -9,24 +9,6 @@ class OrdersController < ApplicationController
     # render json: @orders, status: :ok
   end
 
-  # def create
-  #   @cart = current_user.cart
-  #   if @cart.cart_items.empty?
-  #     render json: { error: 'Cart is empty. Cannot create an order with an empty cart.' },status: :unprocessable_entity
-  #   else
-  #     @order = current_user.orders.new(address: params[:address])
-
-  #     if @order.save
-  #       OrderMailer.order_confirm(@current_user).deliver_now
-  #       create_order_items(@order)
-  #       render json: { data: @order, message: 'Order created successfully!' },
-  #       status: :created
-  #     else
-  #       render json: { error: @order.errors.full_messages }, status: :unprocessable_entity
-  #     end
-  #   end
-  # end
-
   def new
     @order = Order.new
   end
@@ -41,6 +23,7 @@ class OrdersController < ApplicationController
 
       if @order.save
         # OrderMailer.order_confirm(current_user).deliver_now
+         # OrderMailer.notify_owner(order.id, owner_email).deliver_later
         create_order_items(@order)
         flash[:notice] = 'Order created successfully!'
         redirect_to orders_path

@@ -82,6 +82,11 @@ h2{
       </div>
 
       <div class="field">
+        <%= f.label :contact %><br />
+        <%= f.text_field :contact, autofocus: true, autocomplete: "contact" %>
+      </div>
+
+      <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>

@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
                   elsif params[:status]
                     restaurants.where(status: params[:status]).page(params[:page]).per(3)
                   elsif params[:address]
-                    restaurants.where('address LIKE ?', "%#{params[:address]}%")
+                    restaurants.where('address LIKE ?', "%#{params[:address]}%").page(params[:page]).per(3)
                   else
                     restaurants.page(params[:page]).per(5)
                   end
@@ -22,6 +22,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = current_user.restaurants.new(restaurant_params)
+    # @restaurant = Owner.find(current_user.id).restaurants.new(restaurant_params)
     if @restaurant.save
       redirect_to root_path
       flash[:message] = "You Created Successfully!"
@@ -29,7 +30,6 @@ class RestaurantsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
 
   def show
     @restaurant = Restaurant.find_by_id(params[:id])
@@ -63,34 +63,15 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  # def my_restaurants_list
-  #   restaurants = @current_user.restaurants
-  #   if restaurants.any?
-  #     render json: restaurants
-  #   else
-  #     render json: { error: "You haven't added any restaurants yet." }, status: :ok
-  #   end
-  # end
 
   def my_restaurants_list
     @restaurants = current_user.restaurants
     if @restaurants.any?
-      render 'my_restaurants_list'
+      render "my_restaurants_list"
     else
-      render plain: "You haven't added any restaurants yet.", status: :ok
+      render plain: "You haven't added any restaurants yet."
     end
   end
-  
-
-  # def restaurant_dish
-  #   @restaurant = Restaurant.find_by_id(params[:id])
-  #   @dishes = @restaurant.dishes
-  #   if @dishes.any?
-  #     render @dishes
-  #   else
-  #     render plain: "dishes not availables "
-  #   end
-  # end
 
   private
 

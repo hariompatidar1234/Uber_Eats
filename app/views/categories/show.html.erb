@@ -29,15 +29,19 @@
 
 <h1>Dish Details</h1>
 <div class="dish-container">
-  <% @dishes.each do |dish| %>
-    <div class="dish-details">
-      <div>
-        <p><strong>Dish Name:</strong> <%= dish.name %></p>
-        <p><strong>Price:</strong> <%= dish.price %></p>
-        <p><strong>Restaurant:</strong> <%= Restaurant.find_by_id(dish.restaurant_id).name %></p>
-        <br>
+  <% if @dishes.any? %>
+    <% @dishes.each do |dish| %>
+      <div class="dish-details">
+        <div>
+          <p><strong>Dish Name:</strong> <%= dish.name %></p>
+          <p><strong>Price:</strong> <%= dish.price %></p>
+          <p><strong>Restaurant:</strong> <%= Restaurant.find_by_id(dish.restaurant_id).name %></p>
+          <br>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <p>dish not found</p>
   <% end %>
 </div>
 

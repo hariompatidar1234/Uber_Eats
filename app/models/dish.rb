@@ -11,6 +11,11 @@ class Dish < ApplicationRecord
   has_one_attached :picture
 
   validates :name, :price, presence: true
-  validates :price, numericality: { greater_than_or_equal_to: 0 }
+  validates :price, numericality: { greater_than: 0 }
   validates :restaurant_id, uniqueness: { scope: :name, message: 'dish already added ' }
+
+
+  # def self.ransackable_attributes(auth_object = nil)
+  #   ["category_id", "created_at", "id", "name", "price", "restaurant_id", "updated_at"]
+  # end
 end
