@@ -159,9 +159,10 @@
       <% if user_signed_in? %>
         <a href="<%= destroy_user_session_path %>" class="signout-button">Sign Out</a>
       <% end %>
-
-        <%= link_to 'View Cart', carts_path, class: 'btn-primary' %>
-        <%= link_to 'View Order', orders_path, class: 'btn-primary' %>
+        <% if current_user.type == 'Customer' %>
+          <%= link_to 'View Cart', carts_path, class: 'btn-primary' %>
+          <%= link_to 'View Order', orders_path, class: 'btn-primary' %>
+        <% end %>
     </div>
   </div>
   <div class="menu-button" onclick="toggleMenu()">&#9776;</div>
